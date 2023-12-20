@@ -50,11 +50,11 @@ class Predictor(BasePredictor):
             ge=0,
         ),
         td_psola_dynamic_key: str = Input(
-            description="Only for `TD-PSOLA` method when `td_psola_pitch_shift` is `key`. Overrides `td_psola_key_updown`. Dynamic pitch shift. Must be formatted in dict type[`relative frame ratio`(0.0~1.0):`key_shift_amount`]. (eg. [0.3:1, 0.6:-2] means for first 0 ~ 30% part of the audio, it keeps the original key, for 30 ~ 60% key is shifted +1 and for 60 ~ 100% key is shifted -2.)",
+            description="Only for `TD-PSOLA` method when `td_psola_pitch_shift` is `key`. Overrides `td_psola_key_updown`. Dynamic pitch shift. Must be formatted in dict type[`relative frame ratio`(0.0~1.0):`key_shift_amount`]. (eg. [0.3:0, 0.6:1, 1:-2] means for first 0 ~ 30% part of the audio, it keeps the original key, for 30 ~ 60% key is shifted +1 and for 60 ~ 100% key is shifted -2.)",
             default=None,
         ),
         td_psola_dynamic_pitch: str = Input(
-            description="Only for `TD-PSOLA` method when `td_psola_pitch_shift` is `pitch`. Overrides `td_psola_pitch_ratio`. Dynamic pitch shift. Must be formatted in dict type[`relative frame ratio`(0.0~1.0):`pitch_shift_amount`]. (eg. [0.5:2, 0.8:1.3] means for first 0 ~ 50% part of the audio, it keeps the original key, for 50 ~ 80% pitch is shifted +1 octave and for 80 ~ 100% pitch is shifted 130% of original pitch value.)",
+            description="Only for `TD-PSOLA` method when `td_psola_pitch_shift` is `pitch`. Overrides `td_psola_pitch_ratio`. Dynamic pitch shift. Must be formatted in dict type[`relative frame ratio`(0.0~1.0):`pitch_shift_amount`]. (eg. [0.5:1, 0.8:2, 1:1.3] means for first 0 ~ 50% part of the audio, it keeps the original key, for 50 ~ 80% pitch is shifted +1 octave and for 80 ~ 100% pitch is shifted 130% of original pitch value.)",
             default=None,
         ),
         absolute_second: bool = Input(
