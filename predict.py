@@ -122,10 +122,8 @@ class Predictor(BasePredictor):
                         tgt_f0_weight = np.concatenate(tgt_f0_weight)
                     else:
                         tgt_f0_array = np.array([[float(j[0]),float(j[1])] for j in [i.split(":") for i in td_psola_dynamic_key.replace(" ","").split(',')]]).T
-                        print(tgt_f0_array)
                         tgt_f0_weight=[]
                         for i in range(1,tgt_f0_array.shape[-1]):
-                            print(i, tgt_f0_array[1][i], pow(2, tgt_f0_array[1][i]/12))
                             tgt_f0_weight.append(np.full(int(f0_crepe.shape[0]*(tgt_f0_array[0][i]-tgt_f0_array[0][i-1])), pow(2, tgt_f0_array[1][i]/12)))
                         tgt_f0_weight = np.concatenate(tgt_f0_weight)
                     if tgt_f0_weight.shape[0] < f0_crepe.shape[0]:
